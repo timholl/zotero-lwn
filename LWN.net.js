@@ -85,12 +85,13 @@ function getAuthor(doc) {
 	if (isNewsItem(doc)) {
 		let author = ZU.xpathText(doc, '//div[@class="Byline"]').match(/Posted (.*) by (.*)\]/i)[2];
 
-		// regular news items are published with abbreviated author names, so we have to map them back to their full names
+		// regular news items are published with abbreviated author names, so we have to map them back to their full names.
+		// Since regular news items should only by authored by the LWN staff themselves (4 people), this should suffice.
 		const knownAuthors = {
 			'corbet': 'Jonathan Corbet',
-			// jzb
-			// daroc
-			// ...
+			'daroc': 'Daroc Alden',
+			'jake': 'Jake Edge',
+			'jzb': 'Joe Brockmeier',
 		};
 
 		if (knownAuthors.hasOwnProperty(author)) {
