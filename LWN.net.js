@@ -30,6 +30,11 @@ async function doWeb(doc, url) {
 	let author = getAuthor(doc);
 	let date = ZU.strToISO(getDate(doc));
 
+	if (title === null || author === null || date === null) {
+		return;
+	}
+
+  // We basically inherit the default 'web' translator and just manually scrape the metadata and add the EPUB attachment.
 	let translator = Zotero.loadTranslator('web');
 	translator.setTranslator('951c027d-74ac-47d4-a107-9c3069ab7b48');
 	translator.setDocument(doc);
@@ -38,12 +43,12 @@ async function doWeb(doc, url) {
 		item.creators.push(ZU.cleanAuthor(author, "author", false));
 		item.date = date;
 
-		item.publicationTitle = "LWN.net"; // "Linux Weekly News" is discouraged
+		item.publicationTitle = "LWN.net"; // "Linux Weekly News" is discouraged (see their FAQ)
 		item.language = "en-US";
 
 		item.attachments.push({
 			title: "Article EPUB",
-			url: url + (url.endsWith('/') ? '' : '/') + "epub",
+			url: url + (url.endsWith('/') ? '' : '/') + 'epub',
 		});
 
 		item.complete();
@@ -77,7 +82,7 @@ function isGuestArticle(doc) {
  */
 
 function getTitle(doc) {
-	return ZU.xpathText(doc, "//div[contains(@class, 'PageHeadline')]/h1/text()");
+	return ZU.xpathText(doc, '//div[contains(@class, "PageHeadline")]/h1/text()'');
 }
 
 function getAuthor(doc) {

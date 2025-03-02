@@ -12,3 +12,4 @@ I have not found the time to submit this into the [upstream translators reposito
 ## Usage
 
  - On supported LWN pages (news items, featured articles and guest articles), the Zotero plugin will turn into a little "newspaper" icon.
+ - A single click on it will create a Zotero newspaper article entry for the current item, store a snapshot of the page and download the article in EPUB format (requires being logged in as subscriber).
