@@ -1,8 +1,11 @@
+> [!IMPORTANT]
+> This translator was successfully [upstreamed](https://github.com/zotero/translators/pull/3431) into the [`zotero/translators`](https://github.com/zotero/translators/) repository and is therefore available in future zotero installations by default.
+
 # LWN.net translator for Zotero
 
 Allows to easily import LWN.net articles into Zotero, including a Snapshot and the article EPUB.
 
-I have not found the time to submit this into the [upstream translators repository](https://github.com/zotero/translators) yet.
+~~I have not found the time to submit this into the [upstream translators repository](https://github.com/zotero/translators) yet.~~
 
 ## Installation
 
